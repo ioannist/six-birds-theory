@@ -1,0 +1,49 @@
+digraph deps {
+  rankdir=LR;
+
+  "D-CL-01" -> "T-CAT-01";
+  "D-CL-02" -> "T-CAT-01";
+
+  "D-CL-01" -> "T-CL-01";
+
+  "D-CL-01" -> "T-CL-02";
+  "D-FOR-01" -> "T-CL-02";
+
+  "D-IC-01" -> "T-IC-01";
+  "D-CL-02" -> "T-IC-01";
+
+  "D-IC-01" -> "T-IC-02";
+  "D-IC-02" -> "T-IC-02";
+
+  "D-AUT-01" -> "T-ACC-01";
+  "D-REV-01" -> "T-ACC-01";
+  "D-ACC-01" -> "T-ACC-01";
+  "D-ACC-02" -> "T-ACC-01";
+
+  "D-AUT-01" -> "C-ACC-01";
+  "D-ACC-01" -> "C-ACC-01";
+  "D-ACC-02" -> "C-ACC-01";
+  "D-PROT-01" -> "C-ACC-01";
+  "D-PROT-02" -> "C-ACC-01";
+  "T-AOT-02" -> "C-ACC-01";
+
+  "D-AOT-01" -> "T-AOT-01";
+  "D-LENS-01" -> "T-AOT-01";
+
+  "D-AOT-01" -> "D-AOT-EP-01";
+  "D-AOT-01" -> "L-AOT-STAT-01";
+  "D-AOT-EP-01" -> "L-AOT-STAT-01";
+
+  "D-AUT-01" -> "T-AOT-02";
+  "D-REV-01" -> "T-AOT-02";
+  "D-ACC-01" -> "T-AOT-02";
+  "D-ACC-02" -> "T-AOT-02";
+  "D-PROT-01" -> "T-AOT-02";
+  "D-PROT-02" -> "T-AOT-02";
+
+  "D-P2-01" -> "T-P2-01";
+  "D-P1-01" -> "T-P1-01";
+
+  "D-FOR-02" -> "T-FOR-01";
+  "D-FOR-02" -> "T-FOR-02";
+}

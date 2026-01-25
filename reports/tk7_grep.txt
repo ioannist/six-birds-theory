@@ -1,0 +1,54 @@
+PATTERN P3_alone: P3 alone
+NO_HITS
+---
+PATTERN P3_arrow: P3.*(implies|creates|generates).*arrow
+NO_HITS
+---
+PATTERN holonomy_arrow: holonomy.*arrow
+714:Under \textbf{A\_AUT}+\textbf{A\_ACC}+\textbf{A\_NULL} (no affinities anywhere in the lifted state space), protocol holonomy alone does not yield sustained arrow-of-time in the autonomous accounted model.
+---
+PATTERN protocol_alone_irrevers: protocol.*alone.*irrevers
+NO_HITS
+---
+PATTERN coarse_graining_create: coarse-?graining.*create
+658:\subsection{Data processing: coarse-graining cannot create irreversibility}
+---
+PATTERN forget_create_irrevers: forget.*create.*irrevers
+NO_HITS
+---
+PATTERN creates_irreversibility: creates irreversibility
+NO_HITS
+---
+PATTERN E_tau: E_\{\\tau,
+137:In Section~\ref{sec:idempotent-endo} we also construct, from a Markov kernel, a lens $f$, and a timescale, a dynamics-induced completion endomap $E_{\tau,f}$ on $\Delta(Z)$.
+311:dynamics-induced operators $E_{\tau,\Pi}$ (defined later on probability simplices)
+348:E_{\tau,f}:\Delta(Z)\to \Delta(Z),
+350:E_{\tau,f}(\mu) \;:=\; U_f\bigl(Q_f(\mu P^\tau)\bigr).
+355:The map $E_{\tau,f}$ is an affine endomap of $\Delta(Z)$ (indeed a Markov kernel on $Z$),
+357:We treat $E_{\tau,f}$ within the ``fixed points of (approx) idempotents'' framework
+366:The \emph{idempotence defect} of $E_{\tau,f}$ is
+370:\sup_{\mu\in \Delta(Z)} \bigl\|E_{\tau,f}(E_{\tau,f}(\mu)) - E_{\tau,f}(\mu)\bigr\|_{\mathrm{TV}}.
+377:\max_{z\in Z} \bigl\|\delta_z(E_{\tau,f}^2 - E_{\tau,f})\bigr\|_{\mathrm{TV}}
+379:\frac12\max_{z\in Z}\sum_{z'\in Z}\bigl|(E_{\tau,f}^2 - E_{\tau,f})(z,z')\bigr|.
+386:s_{\tau,f}(x) \;:=\; \bigl\|E_{\tau,f}(u_x)-u_x\bigr\|_{\mathrm{TV}}
+395:Assume \textbf{A\_FIN}+\textbf{A\_LENS} and fix $E_{\tau,f}$ as in Definition~\ref{def:D-IC-01}.
+406:In particular, if $\varepsilon_{\tau,f}=0$ then $E_{\tau,f}$ is exactly idempotent.
+414:\|E_{\tau,f}(u_x)-u_x\|_{\mathrm{TV}}
+423:For (2), write any $\mu\in\Delta(Z)$ as $\mu_1:=E_{\tau,f}(\mu)=\sum_{x\in X}w_x u_x$
+427:E_{\tau,f}(\mu_1) - \mu_1
+429:\sum_{x\in X} w_x\bigl(E_{\tau,f}(u_x)-u_x\bigr).
+433:\|E_{\tau,f}(\mu_1) - \mu_1\|_{\mathrm{TV}}
+435:\sum_{x\in X}w_x \|E_{\tau,f}(u_x)-u_x\|_{\mathrm{TV}}
+451:for $E_{\tau,f}$ can either increase or decrease under refinement.
+482:The induced endomap $E_{\tau,f}$ packages a distribution by evolving for $\tau$ steps and then
+831:empirical endomap $E_{\tau,f}$. This is a change in the operator itself, not an external schedule.
+---
+PATTERN empirical_closure_ClosureOperator: empirical closure.*ClosureOperator
+NO_HITS
+---
+PATTERN E_extensive: E.*extensive
+NO_HITS
+---
+PATTERN E_monotone: E.*monotone
+NO_HITS
+---

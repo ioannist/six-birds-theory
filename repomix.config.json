@@ -1,0 +1,36 @@
+{
+  "output": {
+    "filePath": "repomix-output.txt",
+    "style": "plain",
+    "headerText": "Six Birds Theory - Mathematical Research Repository",
+    "topFilesLength": 10,
+    "showLineNumbers": true,
+    "removeComments": false,
+    "removeEmptyLines": false
+  },
+  "include": [
+    "formal/**/*.lean",
+    "formal/lakefile.toml",
+    "formal/lean-toolchain",
+    "scripts/**/*.py",
+    "docs/spec/**/*",
+    "docs/registries/**/*.md"
+  ],
+  "ignore": {
+    "useGitignore": true,
+    "useDefaultPatterns": true,
+    "customPatterns": [
+      "knowledge-base/**/*",
+      "docs/indices/**/*",
+      "lake-manifest.json",
+      "manuscript/**/*",
+      "README.md",
+      ".git/**/*",
+      "**/.DS_Store",
+      "**/Thumbs.db"
+    ]
+  },
+  "security": {
+    "enableSecurityCheck": true
+  }
+}

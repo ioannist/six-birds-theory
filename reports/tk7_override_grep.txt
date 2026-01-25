@@ -1,0 +1,92 @@
+PATTERN: P3 alone
+WHY: Guard against P3-only arrow claims
+HITS:
+manuscript/consistency_checklist.md:42:- P3 alone (P3/P6 autonomy)
+---
+PATTERN: protocol alone
+WHY: Guard against protocol-alone arrow claims
+HITS:
+manuscript/consistency_checklist.md:43:- protocol alone (P3/P6 autonomy)
+---
+PATTERN: holonomy alone
+WHY: Guard against holonomy-only arrow claims
+HITS:
+manuscript/consistency_checklist.md:44:- holonomy alone (P3/P6 autonomy)
+manuscript/consistency_checklist.md:58:- `manuscript/paper.tex:648:Under \textbf{A\_AUT}+\textbf{A\_ACC}+\textbf{A\_NULL} (no affinities anywhere in the lifted state space), protocol holonomy alone does not yield sustained arrow-of-time in the autonomous accounted model.` -> OK (negated)
+manuscript/paper.tex:714:Under \textbf{A\_AUT}+\textbf{A\_ACC}+\textbf{A\_NULL} (no affinities anywhere in the lifted state space), protocol holonomy alone does not yield sustained arrow-of-time in the autonomous accounted model.
+---
+PATTERN: protocol.*yields.*arrow
+WHY: Guard against protocol implies arrow claims
+HITS:
+manuscript/consistency_checklist.md:45:- protocol.*yields.*arrow (P3/P6 autonomy)
+---
+PATTERN: stroboscopic.*irreversib
+WHY: Guard against stroboscopic irreversibility claims
+HITS:
+manuscript/consistency_checklist.md:46:- stroboscopic.*irreversib (P3/P6 autonomy)
+---
+PATTERN: external schedule
+WHY: Ensure only in clock-audit context
+HITS:
+manuscript/consistency_checklist.md:47:- external schedule (P3/P6 autonomy)
+manuscript/consistency_checklist.md:59:- `manuscript/paper.tex:99:\item[\textbf{A\_AUT}] Autonomy: time-homogeneous dynamics; any protocol/phase variables are included in the state (no external schedule in main-text statements).` -> OK (scoped)
+manuscript/consistency_checklist.md:60:- `manuscript/paper.tex:643:(a) an external schedule (violating \textbf{A\_AUT}), or` -> OK (scoped)
+manuscript/consistency_checklist.md:61:- `manuscript/paper.tex:649:To obtain nonzero steady-state entropy production, one needs a nontrivial affinity component (P6) in the lifted dynamics (e.g.\ a biased phase cycle) or an external schedule.` -> OK (scoped)
+manuscript/consistency_checklist.md:62:- `manuscript/paper.tex:764:empirical endomap $E_{\tau,f}$. This is a change in the operator itself, not an external schedule.` -> OK (scoped)
+manuscript/consistency_checklist.md:63:- `manuscript/paper.tex:776:No external schedule is assumed in the main text; externally scheduled stroboscopic protocols are` -> OK (scoped)
+manuscript/consistency_checklist.md:64:- `manuscript/paper.tex:865:\subsection{Protocol trap: external schedule vs autonomous lifted model}` -> OK (scoped)
+manuscript/paper.tex:164:  \item[\textbf{A\_AUT}] Autonomy: time-homogeneous dynamics; any protocol/phase variables are included in the state (no external schedule in main-text statements).
+manuscript/paper.tex:709:(a) an external schedule (violating \textbf{A\_AUT}), or
+manuscript/paper.tex:715:To obtain nonzero steady-state entropy production, one needs a nontrivial affinity component (P6) in the lifted dynamics (e.g.\ a biased phase cycle) or an external schedule.
+manuscript/paper.tex:831:empirical endomap $E_{\tau,f}$. This is a change in the operator itself, not an external schedule.
+manuscript/paper.tex:843:No external schedule is assumed in the main text; externally scheduled stroboscopic protocols are
+manuscript/paper.tex:932:\subsection{Protocol trap: external schedule vs autonomous lifted model}
+manuscript/reports/tk0_section_label_map.md:30:  - Protocol trap: external schedule vs autonomous lifted model — (label: subsec:ex:protocol-trap) — L865–L904
+---
+PATTERN: coarse[- ]graining can create
+WHY: DPI non-creation
+HITS: none
+---
+PATTERN: coarse[- ]graining creates
+WHY: DPI non-creation
+HITS: none
+---
+PATTERN: macro.*irreversib.*create
+WHY: DPI non-creation
+HITS:
+manuscript/consistency_checklist.md:50:- macro.*irreversib.*create (DPI/coarse-graining)
+---
+PATTERN: forgetting variables.*creates
+WHY: DPI non-creation
+HITS:
+manuscript/consistency_checklist.md:51:- forgetting variables.*creates (DPI/coarse-graining)
+---
+PATTERN: data processing
+WHY: Should be contraction direction
+HITS:
+manuscript/consistency_checklist.md:52:- data processing (DPI/coarse-graining)
+manuscript/consistency_checklist.md:65:- `manuscript/paper.tex:65:\begin{remark}[Stationarity is not needed for $\Sigma_T$ or data processing]` -> OK (scoped)
+manuscript/consistency_checklist.md:66:- `manuscript/paper.tex:67:The data processing inequality for KL is purely measure-theoretic and therefore applies to $\Sigma_T(\rho)$ without any stationarity assumption.` -> OK (scoped)
+manuscript/consistency_checklist.md:67:- `manuscript/paper.tex:561:\section{Arrow-of-time as path reversal asymmetry; data processing; protocol trap}\label{sec:aot}` -> OK (scoped)
+manuscript/consistency_checklist.md:70:- `manuscript/paper.tex:1004:\paragraph{Path reversal asymmetry and data processing (DPI).}` -> OK (scoped)
+manuscript/paper.tex:56:Coarse-graining cannot create arrow-of-time: the path reversal asymmetry contracts under pushforward (data processing in Section~\ref{sec:aot}).
+manuscript/paper.tex:100:\begin{remark}[Stationarity is not needed for $\Sigma_T$ or data processing]
+manuscript/paper.tex:102:The data processing inequality for KL is purely measure-theoretic and therefore applies to $\Sigma_T(\rho)$ without any stationarity assumption.
+manuscript/paper.tex:139:Finally, Sections~\ref{sec:acc} and \ref{sec:aot} provide two audit families used here: graph 1-form exactness/affinities (ACC) and path reversal asymmetry (arrow-of-time), the latter enjoying a precise monotonicity principle under coarse-graining (data processing).
+manuscript/paper.tex:627:\section{Arrow-of-time as path reversal asymmetry; data processing; protocol trap}\label{sec:aot}
+manuscript/paper.tex:1071:\paragraph{Path reversal asymmetry and data processing (DPI).}
+manuscript/reports/tk0_sensitive_anchors.txt:19:- Arrow-of-time as path reversal asymmetry; data processing; protocol trap — L561-L658 — 98 lines
+manuscript/reports/tk0_section_label_map.md:18:- Arrow-of-time as path reversal asymmetry; data processing; protocol trap — (label: none) — L561–L658
+---
+PATTERN: E_{\tau,\Pi}.*closure operator
+WHY: Avoid empirical/order-closure conflation
+HITS: none
+---
+PATTERN: ClosureOperator.*E_{\tau,\Pi}
+WHY: Avoid empirical/order-closure conflation
+HITS: none
+---
+PATTERN: extensive near E_{\tau,\Pi}
+WHY: Avoid closure-operator axioms
+HITS: none
+---

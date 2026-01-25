@@ -1,0 +1,45 @@
+- Introduction — (label: none) — L32–L35
+- Conventions and notation — (label: none) — L36–L107
+  - Finite state spaces, distributions, and kernels — (label: none) — L37–L42
+  - Paths, time reversal, and relative entropy — (label: none) — L43–L70
+  - Coarse-graining lenses — (label: none) — L71–L76
+  - Support graphs and discrete 1-forms — (label: none) — L77–L91
+  - Assumption bundles — (label: none) — L92–L107
+- Order-closure and closure ladders — (label: none) — L108–L199
+  - Order-theoretic closure and fixed points — (label: none) — L109–L147
+  - Closure ladders and saturation — (label: none) — L148–L199
+- Idempotent endomaps and dynamics-induced ``closures'' — (label: none) — L200–L425
+  - Idempotent endomaps — (label: sec:idempotent-endo) — L201–L256
+  - Dynamics-induced empirical endomaps — (label: sec:empirical-closure) — L257–L425
+- AUT + REV + ACC regime and graph 1-forms — (label: sec:acc) — L426–L560
+  - Bidirected support and the log-ratio 1-form — (label: none) — L435–L464
+  - Cycle integrals, exactness, and the null regime — (label: none) — L465–L538
+  - Accounting as coordinates on cycle space — (label: none) — L539–L560
+- Arrow-of-time as path reversal asymmetry; data processing; protocol trap — (label: none) — L561–L658
+  - Data processing: coarse-graining cannot create irreversibility — (label: none) — L592–L619
+  - Protocol trap: apparent stroboscopic arrows and the ``clock audit'' — (label: none) — L620–L658
+- Generic extension and the finite forcing lemma — (label: none) — L659–L751
+  - Languages as partitions and definability — (label: none) — L660–L683
+  - Counting lemma: definable predicates are rare — (label: none) — L684–L701
+  - Finite forcing: generic extensions are non-definable — (label: none) — L702–L751
+- Primitives P1--P6 as closure-changing operations — (label: none) — L752–L837
+  - Definitions of P1--P6 — (label: none) — L759–L796
+  - Two load-bearing propositions — (label: none) — L797–L837
+- Examples — (label: sec:examples) — L838–L918
+  - A biased three-cycle: a non-exact graph 1-form — (label: subsec:ex:3cycle) — L845–L864
+  - Protocol trap: external schedule vs autonomous lifted model — (label: subsec:ex:protocol-trap) — L865–L904
+  - Finite forcing count: definability is exponentially rare — (label: subsec:ex:forcing-count) — L905–L918
+- Discussion and scope boundary — (label: none) — L919–L923
+- Appendix A: Reproducibility checklist — (label: none) — L924–L954
+- Appendix B: Lean formalization map — (label: none) — L955–L990
+- Appendix C: Python evidence map — (label: none) — L991–L1067
+- Appendix D: Zeno cascades and refinement depth (decision frontier) — (label: app:zeno) — L1068–L1256
+  - Setup: frontier and Zeno criterion — (label: none) — L1070–L1082
+  - Bridges, ports, and accounting — (label: none) — L1083–L1097
+  - Storage-based activity and the WORK quantum (Option B) — (label: none) — L1098–L1132
+  - Integrated throughput (ICAP) and feasibility \texorpdfstring{$\Rightarrow$ — (label: none) — L1133–L1164
+  - No-Zeno criterion via divergence — (label: none) — L1165–L1180
+  - Hard lemma slots (WORK/CAP/route mismatch/divergence) — (label: none) — L1181–L1212
+  - Checkable divergence criteria — (label: none) — L1213–L1222
+  - Toy model families (necessity witnesses) — (label: none) — L1223–L1241
+  - Decision tree (settlement frontier) — (label: none) — L1242–L1256

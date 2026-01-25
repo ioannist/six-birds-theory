@@ -1,0 +1,46 @@
+COMMAND: python3 scripts/check_paper_contract.py
+STATUS: PASS (exit 0)
+STDOUT:
+paper contract scope map OK
+---
+COMMAND: python3 scripts/check_deps_dag.py
+STATUS: PASS (exit 0)
+STDOUT:
+DAG OK
+---
+COMMAND: python3 scripts/check_kb_pointers.py
+STATUS: PASS (exit 0)
+STDOUT:
+KB pointers OK — 76 checked (0 errors)
+---
+COMMAND: ./check_lean.sh
+STATUS: PASS (exit 0)
+STDOUT:
+Current branch: HEAD
+Using cache (Azure) from origin: leanprover-community/mathlib4
+No files to download
+Decompressing 7727 file(s)
+Unpacked in 61675 ms
+Completed successfully!
+ℹ [439/441] Replayed ClosureLadder.Packaging
+info: ClosureLadder/Packaging.lean:29:0: ClosureOperator.gi.{u_1} {α : Type u_1} [PartialOrder α] (c : ClosureOperator α) :
+  GaloisInsertion c.toCloseds Subtype.val
+info: ClosureLadder/Packaging.lean:30:0: GaloisInsertion.l_u_eq.{u, v} {α : Type u} {β : Type v} {l : α → β} {u : β → α} [Preorder α] [PartialOrder β]
+  (gi : GaloisInsertion l u) (b : β) : l (u b) = b
+info: ClosureLadder/Packaging.lean:31:0: ClosureOp.reflect_le_iff.{u} {α : Type u} [PartialOrder α] (c : ClosureOp α) {x : α} {y : c.Closed} :
+  c.reflect x ≤ y ↔ x ≤ c.incl y
+Build completed successfully (441 jobs).
+---
+COMMAND: cd python && .venv/bin/python -m pytest -q
+STATUS: FAIL (exit 1)
+STDERR:
+/home/repos/closure-ladder-theory/python/.venv/bin/python: No module named pytest
+---
+COMMAND: ./manuscript/build_paper.sh
+STATUS: PASS (exit 0)
+STDOUT:
+No LaTeX toolchain found (latexmk/pdflatex/tectonic). Skeleton created; install one of these to compile.
+---
+LEAN_TOOLCHAIN: leanprover/lean4:v4.26.0
+MATHLIB_REV: 2df2f0150c275ad53cb3c90f7c98ec15a56a1a67
+MATHLIB_INPUT_REV: v4.26.0

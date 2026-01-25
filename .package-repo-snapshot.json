@@ -1,0 +1,74 @@
+{
+  "allowed_roots": {
+    "docs": {
+      "extensions": [
+        ".md",
+        ".json",
+        ".dot"
+      ]
+    },
+    "formal": {
+      "extensions": [
+        ".lean",
+        ".toml"
+      ],
+      "filenames": [
+        "lean-toolchain",
+        "lakefile.lean",
+        "lakefile.toml"
+      ]
+    },
+    "knowledge-base": {
+      "extensions": [
+        ".md"
+      ]
+    },
+    "manuscript": {
+      "extensions": [
+        ".tex",
+        ".bib",
+        ".md",
+        ".txt",
+        ".sh"
+      ],
+      "filenames": [
+        "latexmkrc"
+      ]
+    },
+    "python": {
+      "extensions": [
+        ".py",
+        ".txt",
+        ".ini",
+        ".toml",
+        ".md",
+        ".png"
+      ]
+    },
+    "scripts": {
+      "extensions": [
+        ".sh",
+        ".py",
+        ".txt"
+      ]
+    }
+  },
+  "allowed_root_files": [
+    "README.md",
+    "check_lean.sh",
+    "repomix.sh",
+    "repomix.config.json",
+    ".repomix-version",
+    ".package-repo-snapshot.json"
+  ],
+  "exclude_dirs": [
+    ".git",
+    ".lake",
+    ".venv",
+    "venv",
+    "__pycache__",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache"
+  ]
+}

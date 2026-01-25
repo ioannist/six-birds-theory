@@ -1,0 +1,101 @@
+{
+  "main": {
+    "definitions": [
+      "D-ACC-01",
+      "D-ACC-02",
+      "D-AOT-01",
+      "D-AOT-EP-01",
+      "D-AUT-01",
+      "D-CL-01",
+      "D-CL-02",
+      "D-CL-03",
+      "D-FOR-01",
+      "D-FOR-02",
+      "D-IC-01",
+      "D-IC-02",
+      "D-LENS-01",
+      "D-P1-01",
+      "D-P2-01",
+      "D-PROT-02",
+      "D-REV-01",
+      "D-TK-CERT-01",
+      "D-TK-THY-01",
+      "D-META-PROC-01",
+      "D-META-LENS-01",
+      "D-META-REF-01",
+      "D-META-BND-01"
+    ],
+    "claims": [
+      "C-ACC-01",
+      "L-AOT-STAT-01",
+      "T-ACC-01",
+      "T-AOT-01",
+      "T-AOT-02",
+      "T-CL-01",
+      "T-FOR-01",
+      "T-FOR-02",
+      "T-IC-01",
+      "T-IC-02",
+      "T-P1-01",
+      "T-P2-01",
+      "T-META-PRIM-01"
+    ]
+  },
+  "appendix": {
+    "definitions": [
+      "D-PROT-01",
+      "D-ZENO-01",
+      "D-ZENO-02",
+      "D-ZENO-03",
+      "D-ZENO-04",
+      "D-ECT-ATOM-01",
+      "D-ECT-CAP-01",
+      "D-ECT-GATE-01",
+      "D-ECT-SECT-01",
+      "D-ECT-P5MIN-01",
+      "D-ECT-P4IDX-01",
+      "D-ECT-ATOM-SS-01",
+      "D-ECT-BAL-01",
+      "D-TK-BRG-01",
+      "D-TK-BRG-02",
+      "D-TK-BRG-03",
+      "D-TK-DEF-01",
+      "D-TK-DEF-02",
+      "D-TK-ROUTE-01"
+    ],
+    "claims": [
+      "T-CAT-01",
+      "T-CL-02",
+      "T-ZENO-01",
+      "T-ZENO-02",
+      "T-ZENO-03",
+      "L-ECT-MECH-01",
+      "L-ECT-FMEM-01",
+      "L-ECT-COER-01",
+      "L-ECT-SHRINK-01",
+      "L-ECT-MODE-UB-01",
+      "L-ECT-QSIZE-01",
+      "C-ECT-HL1-01",
+      "L-ECT-BAL-KMASS-01",
+      "C-ECT-BAL-ICAP-01",
+      "L-TK-ROUTE-01"
+    ],
+    "artifacts": [
+      "randomized DPI sweep",
+      "protocol trap demo",
+      "spectral gap demos",
+      "forcing sweep",
+      "fixed-weight forcing contrast",
+      "stationary distribution fallback policy",
+      "REV-support convention tests",
+      "empirical closure leakage sweep",
+      "refinement help/hurt sweep",
+      "p1 gap decrease demo",
+      "diagnostic/counterexample items"
+    ]
+  },
+  "omit": {
+    "definitions": [],
+    "claims": []
+  }
+}

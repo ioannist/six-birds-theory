@@ -1,0 +1,9 @@
+New IDs (appendix-only):
+- D-ECT-ATOM-SS-01
+- D-ECT-BAL-01
+- L-ECT-BAL-KMASS-01
+- C-ECT-BAL-ICAP-01
+
+Checks:
+python3 scripts/check_paper_contract.py: PASS
+python3 scripts/check_deps_dag.py: PASS

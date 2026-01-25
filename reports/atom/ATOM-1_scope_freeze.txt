@@ -1,0 +1,11 @@
+New IDs (appendix-only):
+- D-ECT-ATOM-SS-01
+- D-ECT-BAL-01
+- L-ECT-BAL-KMASS-01
+- C-ECT-BAL-ICAP-01
+
+main.claims unchanged: yes
+
+Checks:
+paper contract scope map OK
+DAG OK

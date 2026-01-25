@@ -1,0 +1,18 @@
+Plan A (main-heavy)
+1) Unified theory package object model: after 'Two load-bearing propositions' (Primitives P1--P6), main text; new labels: sec:theory-package, def:theory-package
+2) Approximation/defect calculus: new Appendix E after Appendix D; appendix; new labels: app:defect-calculus, def:defect
+3) Route mismatch object + inequality: after 'Hard lemma slots (WORK/CAP/route mismatch/divergence)' in Appendix D; appendix; new labels: def:route-mismatch, thm:route-mismatch-capacity
+4) Bridge object toolkit: after 'Bridges, ports, and accounting' in Appendix D; appendix; new labels: def:bridge-object, def:port, def:causal-bridge, def:passivity, def:icap
+5) Interoperability/orthogonality statement: in 'Discussion and scope boundary' before appendices; main text; new label: sec:interoperability
+
+Plan B (appendix-heavy)
+1) Toolkit summary pointer: after 'Discussion and scope boundary'; main text; new label: sec:toolkit-summary
+2) Unified theory package object model: new Appendix E; appendix; new labels: app:theory-package, def:theory-package
+3) Approximation/defect calculus: new Appendix E; appendix; new labels: app:defect-calculus, def:defect
+4) Route mismatch object + inequality: new Appendix E; appendix; new labels: app:route-mismatch, thm:route-mismatch-capacity
+5) Bridge object toolkit: new Appendix E; appendix; new labels: app:bridge-toolkit, def:bridge-object, def:icap
+6) Interoperability/orthogonality statement: new Appendix E; appendix; new labels: app:interoperability
+
+Conflicts/notes
+- Appendix D already contains bridges/storage/ICAP content; Plan B should avoid duplication or cross-reference Appendix D
+- Conventions and notation and Idempotent endomaps sections are already dense; avoid inserting there

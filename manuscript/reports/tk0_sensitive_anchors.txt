@@ -1,0 +1,27 @@
+Theorem-style environments declared:
+- definition
+- lemma
+- theorem
+- corollary
+- proposition
+- remark
+- example
+Box-like envs used in manuscript:
+- \fbox not present
+- minipage not present
+
+Section line counts (approx):
+- Introduction — L32-L35 — 4 lines
+- Conventions and notation — L36-L107 — 72 lines
+- Order-closure and closure ladders — L108-L199 — 92 lines
+- Idempotent endomaps and dynamics-induced ``closures'' — L200-L425 — 226 lines
+- AUT + REV + ACC regime and graph 1-forms — L426-L560 — 135 lines
+- Arrow-of-time as path reversal asymmetry; data processing; protocol trap — L561-L658 — 98 lines
+- Generic extension and the finite forcing lemma — L659-L751 — 93 lines
+- Primitives P1--P6 as closure-changing operations — L752-L837 — 86 lines
+- Examples — L838-L918 — 81 lines
+- Discussion and scope boundary — L919-L923 — 5 lines
+- Appendix A: Reproducibility checklist — L924-L954 — 31 lines
+- Appendix B: Lean formalization map — L955-L990 — 36 lines
+- Appendix C: Python evidence map — L991-L1067 — 77 lines
+- Appendix D: Zeno cascades and refinement depth (decision frontier) — L1068-L1256 — 189 lines

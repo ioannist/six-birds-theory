@@ -1,0 +1,12 @@
+New IDs added (main text):
+- D-META-PROC-01
+- D-META-LENS-01
+- D-META-REF-01
+- D-META-BND-01
+- T-META-PRIM-01
+
+main.claims changed only by adding T-META-PRIM-01: yes
+
+Checks:
+paper contract scope map OK
+DAG OK

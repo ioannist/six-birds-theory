@@ -1,0 +1,3 @@
+paper contract scope map OK
+DAG OK
+tex refs OK (178 refs, 105 labels)
