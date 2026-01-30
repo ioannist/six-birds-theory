@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Six Birds: Foundations of Emergence Calculus"
+authors:
+  - family-names: Tsiokos
+    given-names: Ioannis
+type: article
+url: "https://zenodo.org/records/18365949"
+doi: "10.5281/zenodo.18365949"
+repository-code: "https://github.com/ioannist/six-birds-theory"
+abstract: >-
+  A math-only framework for reasoning about hierarchical description,
+  emergence, and open-ended theory growth in multiscale systems. The
+  central construct is a theory package with three components: lens/definability
+  structure, completion (packaging) rule, and audit/certificate.
+keywords:
+  - emergence
+  - closure operators
+  - idempotence
+  - open-ended evolution
+  - multiscale systems
+  - theory packages
+license: CC-BY-4.0
