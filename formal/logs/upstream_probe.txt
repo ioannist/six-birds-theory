@@ -1,0 +1,8 @@
+FOUND: ClosureOperator : (α : Type u_1) → [Preorder α] → Type u_1
+NOT FOUND: Function.Idempotent
+FOUND: Function.fixedPoints : {α : Type u} → (α → α) → Set α
+FOUND: Function.IsFixedPt : {α : Type u₁} → (α → α) → α → Prop
+NOT FOUND: Function.Idempotent.iterate_succ_apply
+NOT FOUND: Function.Idempotent.iterate_apply_eq
+SYNTH FAIL: LE (ClosureOperator ℕ)
+SYNTH FAIL: Preorder (ClosureOperator ℕ)

@@ -1,0 +1,48 @@
+.lake/packages/mathlib/Mathlib/Order/Nucleus.lean:74:/-- Every nucleus is a `ClosureOperator`. -/
+.lake/packages/mathlib/Mathlib/Order/Nucleus.lean:75:def toClosureOperator (n : Nucleus X) : ClosureOperator X :=
+.lake/packages/mathlib/Mathlib/Order/Nucleus.lean:76:  ClosureOperator.mk' n (OrderHomClass.mono n) n.le_apply' n.idempotent'
+.lake/packages/mathlib/Mathlib/Order/Nucleus.lean:78:@[simp] lemma idempotent (x : X) : n (n x) = n x := n.toClosureOperator.idempotent x
+.lake/packages/mathlib/Mathlib/Order/Nucleus.lean:81:  n.toClosureOperator.le_closure x
+.lake/packages/mathlib/Mathlib/Order/Nucleus.lean:83:lemma monotone : Monotone n := n.toClosureOperator.monotone
+.lake/packages/mathlib/Mathlib/Order/Nucleus.lean:245:  gc x y := ClosureOperator.IsClosed.closure_le_iff (c := n.toClosureOperator) <| mem_range.1 y.2
+.lake/packages/mathlib/Mathlib/Order/SupClosed.lean:285:def supClosure : ClosureOperator (Set α) := .ofPred
+.lake/packages/mathlib/Mathlib/Order/SupClosed.lean:357:def infClosure : ClosureOperator (Set α) := ClosureOperator.ofPred
+.lake/packages/mathlib/Mathlib/Order/SupClosed.lean:429:def latticeClosure : ClosureOperator (Set α) :=
+.lake/packages/mathlib/Mathlib/Order/SupClosed.lean:488:  change ClosureOperator.ofCompletePred _ _ _ = ClosureOperator.ofCompletePred _ _ _
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:27:insertion from the set of closed elements to the underlying type (see `ClosureOperator.gi`).
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:31:* `ClosureOperator`: A closure operator is a monotone function `f : α → α` such that
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:38:Although `LowerAdjoint` is technically a generalisation of `ClosureOperator` (by defining
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:60:structure ClosureOperator [Preorder α] extends α →o α where
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:72:namespace ClosureOperator
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:74:instance [Preorder α] : FunLike (ClosureOperator α) α α where
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:78:instance [Preorder α] : OrderHomClass (ClosureOperator α) α α where
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:81:initialize_simps_projections ClosureOperator (toFun → apply, IsClosed → isClosed)
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:87:def conjBy {α β} [Preorder α] [Preorder β] (c : ClosureOperator α)
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:88:    (e : α ≃o β) : ClosureOperator β where
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:98:lemma conjBy_refl {α} [Preorder α] (c : ClosureOperator α) :
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:102:    (e₁ : α ≃o β) (e₂ : β ≃o γ) (c : ClosureOperator α) :
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:111:def id : ClosureOperator α where
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:117:instance : Inhabited (ClosureOperator α) :=
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:121:variable (c : ClosureOperator α)
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:124:theorem ext : ∀ c₁ c₂ : ClosureOperator α, (∀ x, c₁ x = c₂ x) → c₁ = c₂ :=
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:130:    ClosureOperator α where
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:140:    ClosureOperator α where
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:150:    (hmin : ∀ ⦃x y⦄, x ≤ y → p y → f x ≤ y) : ClosureOperator α where
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:200:theorem ext_isClosed (c₁ c₂ : ClosureOperator α)
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:207:theorem eq_ofPred_closed (c : ClosureOperator α) :
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:218:variable [PartialOrder α] [OrderTop α] (c : ClosureOperator α)
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:228:theorem closure_inf_le [SemilatticeInf α] (c : ClosureOperator α) (x y : α) :
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:234:variable [SemilatticeSup α] (c : ClosureOperator α)
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:254:variable [CompleteLattice α] (c : ClosureOperator α)
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:258:def ofCompletePred (p : α → Prop) (hsinf : ∀ s, (∀ a ∈ s, p a) → p (sInf s)) : ClosureOperator α :=
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:264:theorem sInf_isClosed {c : ClosureOperator α} {S : Set α}
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:282:end ClosureOperator
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:284:/-- Conjugating `ClosureOperators` on `α` and on `β` by a fixed isomorphism
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:285:`e : α ≃o β` gives an equivalence `ClosureOperator α ≃ ClosureOperator β`. -/
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:287:def OrderIso.equivClosureOperator {α β} [Preorder α] [Preorder β] (e : α ≃o β) :
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:288:    ClosureOperator α ≃ ClosureOperator β where
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:357:def closureOperator : ClosureOperator α where
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:500:/-! ### Translations between `GaloisConnection`, `LowerAdjoint`, `ClosureOperator` -/
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:513:    (gc : GaloisConnection l u) : ClosureOperator α :=
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:517:def ClosureOperator.gi [PartialOrder α] (c : ClosureOperator α) :
+.lake/packages/mathlib/Mathlib/Order/Closure.lean:528:theorem closureOperator_gi_self [PartialOrder α] (c : ClosureOperator α) :

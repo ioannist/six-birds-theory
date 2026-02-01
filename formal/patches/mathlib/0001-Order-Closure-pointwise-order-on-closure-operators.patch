@@ -1,0 +1,46 @@
+From 73199e781b0845f7bed9bde47985e2424ac17362 Mon Sep 17 00:00:00 2001
+From: Ioannis Tsiokos <ioannis.tsiokos@gmail.com>
+Date: Sun, 1 Feb 2026 19:21:53 +0000
+Subject: [PATCH 1/3] Order/Closure: pointwise order on closure operators
+
+---
+ Mathlib/Order/Closure.lean | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+diff --git a/Mathlib/Order/Closure.lean b/Mathlib/Order/Closure.lean
+index 4350e3f811..6c238fc507 100644
+--- a/Mathlib/Order/Closure.lean
++++ b/Mathlib/Order/Closure.lean
+@@ -78,6 +78,11 @@ instance [Preorder α] : FunLike (ClosureOperator α) α α where
+ instance [Preorder α] : OrderHomClass (ClosureOperator α) α α where
+   map_rel f _ _ h := f.mono h
+ 
++instance instLE [Preorder α] : LE (ClosureOperator α) :=
++  ⟨fun c d => ∀ x, c x ≤ d x⟩
++
++theorem le_def [Preorder α] {c d : ClosureOperator α} : c ≤ d ↔ ∀ x, c x ≤ d x := Iff.rfl
++
+ initialize_simps_projections ClosureOperator (toFun → apply, IsClosed → isClosed)
+ 
+ 
+@@ -180,6 +185,17 @@ theorem IsClosed.closure_eq : c.IsClosed x → c x = x := c.isClosed_iff.1
+ theorem isClosed_iff_closure_le : c.IsClosed x ↔ c x ≤ x :=
+   ⟨fun h ↦ h.closure_eq.le, fun h ↦ c.isClosed_iff.2 <| h.antisymm <| c.le_closure x⟩
+ 
++/-- Closedness is preserved under pointwise order on closure operators. -/
++theorem isClosed_of_le {c d : ClosureOperator α} (hcd : c ≤ d) {x : α} :
++    d.IsClosed x → c.IsClosed x := by
++  intro hx
++  have hx' : d x = x := (d.isClosed_iff).1 hx
++  have hcx : c x ≤ x := by
++    have hcdx : c x ≤ d x := hcd x
++    simpa [hx'] using hcdx
++  have hxc : x ≤ c x := c.le_closure x
++  exact (c.isClosed_iff).2 (le_antisymm hcx hxc)
++
+ /-- The set of closed elements for `c` is exactly its range. -/
+ theorem setOf_isClosed_eq_range_closure : {x | c.IsClosed x} = Set.range c := by
+   ext x; exact ⟨fun hx ↦ ⟨x, hx.closure_eq⟩, by rintro ⟨y, rfl⟩; exact c.isClosed_closure _⟩
+-- 
+2.34.1
+

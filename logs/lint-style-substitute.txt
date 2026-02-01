@@ -1,0 +1,18 @@
+Substitute scan for style lint
+Files:
+formal/ClosureLadder/Basic.lean
+formal/ClosureLadder/Packaging.lean
+formal/ClosureLadder/IdempotentEndo.lean
+formal/ClosureLadder/MetaPackaging.lean
+
+Long lines (>100 chars) per file:
+formal/ClosureLadder/Basic.lean: 0
+formal/ClosureLadder/Packaging.lean: 0
+formal/ClosureLadder/IdempotentEndo.lean: 0
+formal/ClosureLadder/MetaPackaging.lean: 0
+
+Occurrences of lambda (λ):
+
+Occurrences of dollar ($):
+
+Occurrences of 'open Classical':

@@ -1,0 +1,146 @@
+ClosureOperator order / closedness
+27:insertion from the set of closed elements to the underlying type (see `ClosureOperator.gi`).
+31:* `ClosureOperator`: A closure operator is a monotone function `f : α → α` such that
+38:Although `LowerAdjoint` is technically a generalisation of `ClosureOperator` (by defining
+60:structure ClosureOperator [Preorder α] extends α →o α where
+72:namespace ClosureOperator
+74:instance [Preorder α] : FunLike (ClosureOperator α) α α where
+78:instance [Preorder α] : OrderHomClass (ClosureOperator α) α α where
+81:initialize_simps_projections ClosureOperator (toFun → apply, IsClosed → isClosed)
+87:def conjBy {α β} [Preorder α] [Preorder β] (c : ClosureOperator α)
+88:    (e : α ≃o β) : ClosureOperator β where
+98:lemma conjBy_refl {α} [Preorder α] (c : ClosureOperator α) :
+102:    (e₁ : α ≃o β) (e₂ : β ≃o γ) (c : ClosureOperator α) :
+111:def id : ClosureOperator α where
+117:instance : Inhabited (ClosureOperator α) :=
+121:variable (c : ClosureOperator α)
+124:theorem ext : ∀ c₁ c₂ : ClosureOperator α, (∀ x, c₁ x = c₂ x) → c₁ = c₂ :=
+130:    ClosureOperator α where
+140:    ClosureOperator α where
+150:    (hmin : ∀ ⦃x y⦄, x ≤ y → p y → f x ≤ y) : ClosureOperator α where
+200:theorem ext_isClosed (c₁ c₂ : ClosureOperator α)
+67:  By default, this is defined as `c.IsClosed x := (c x = x)` (see `isClosed_iff`).
+69:  IsClosed (x : α) : Prop := toFun x = x
+70:  isClosed_iff {x : α} : IsClosed x ↔ toFun x = x := by aesop
+81:initialize_simps_projections ClosureOperator (toFun → apply, IsClosed → isClosed)
+90:  IsClosed b := c.IsClosed (e.symm b)
+115:  IsClosed _ := True
+152:  IsClosed := p
+168:@[simp] lemma isClosed_closure (x : α) : c.IsClosed (c x) := c.isClosed_iff.2 <| c.idempotent x
+171:abbrev Closeds := {x // c.IsClosed x}
+178:theorem IsClosed.closure_eq : c.IsClosed x → c x = x := c.isClosed_iff.1
+180:theorem isClosed_iff_closure_le : c.IsClosed x ↔ c x ≤ x :=
+184:theorem setOf_isClosed_eq_range_closure : {x | c.IsClosed x} = Set.range c := by
+191:theorem IsClosed.closure_le_iff (hy : c.IsClosed y) : c x ≤ y ↔ x ≤ y := by
+194:lemma closure_min (hxy : x ≤ y) (hy : c.IsClosed y) : c x ≤ y := hy.closure_le_iff.2 hxy
+196:lemma closure_isGLB (x : α) : IsGLB { y | x ≤ y ∧ c.IsClosed y } (c x) where
+201:    (h : ∀ x, c₁.IsClosed x ↔ c₂.IsClosed x) : c₁ = c₂ :=
+208:    c = ofPred c c.IsClosed c.le_closure c.isClosed_closure fun _ _ ↦ closure_min := by
+224:@[simp] lemma isClosed_top : c.IsClosed ⊤ := c.isClosed_iff.2 c.closure_top
+265:    (H : ∀ x ∈ S, c.IsClosed x) : c.IsClosed (sInf S) :=
+407:  (show l.closureOperator.IsClosed y from hy).closure_le_iff
+171:abbrev Closeds := {x // c.IsClosed x}
+174:def toCloseds (x : α) : c.Closeds := ⟨c x, c.isClosed_closure x⟩
+518:    GaloisInsertion c.toCloseds (↑) where
+
+Iterate / idempotent
+13:In this file we prove simple properties of `Nat.iterate f n` a.k.a. `f^[n]`:
+15:* `iterate_zero`, `iterate_succ`, `iterate_succ'`, `iterate_add`, `iterate_mul`:
+18:* `iterate_id` : `id^[n]=id`;
+20:* `Injective.iterate`, `Surjective.iterate`, `Bijective.iterate` :
+21:  iterates of an injective/surjective/bijective function belong to the same class;
+23:* `LeftInverse.iterate`, `RightInverse.iterate`, `Commute.iterate_left`, `Commute.iterate_right`,
+24:  `Commute.iterate_iterate`:
+27:* `iterate_fixed`, `Function.Semiconj.iterate_*`, `Function.Semiconj₂.iterate`:
+40:def Nat.iterate {α : Sort u} (op : α → α) : ℕ → α → α
+42:  | succ k, a => iterate op k (op a)
+44:@[inherit_doc Nat.iterate]
+45:notation:max f "^[" n "]" => Nat.iterate f n
+54:theorem iterate_zero : f^[0] = id :=
+57:theorem iterate_zero_apply (x : α) : f^[0] x = x :=
+61:theorem iterate_succ (n : ℕ) : f^[n.succ] = f^[n] ∘ f :=
+64:theorem iterate_succ_apply (n : ℕ) (x : α) : f^[n.succ] x = f^[n] (f x) :=
+68:theorem iterate_id (n : ℕ) : (id : α → α)^[n] = id :=
+69:  Nat.recOn n rfl fun n ihn ↦ by rw [iterate_succ, ihn, id_comp]
+71:theorem iterate_add (m : ℕ) : ∀ n : ℕ, f^[m + n] = f^[m] ∘ f^[n]
+73:  | Nat.succ n => by rw [Nat.add_succ, iterate_succ, iterate_succ, iterate_add m n]; rfl
+75:theorem iterate_add_apply (m n : ℕ) (x : α) : f^[m + n] x = f^[m] (f^[n] x) := by
+76:  rw [iterate_add f m n]
+81:theorem iterate_one : f^[1] = f :=
+84:theorem iterate_mul (m : ℕ) : ∀ n, f^[m * n] = f^[m]^[n]
+85:  | 0 => by simp only [Nat.mul_zero, iterate_zero]
+86:  | n + 1 => by simp only [Nat.mul_succ, iterate_one, iterate_add, iterate_mul m n]
+90:theorem iterate_fixed {x} (h : f x = x) (n : ℕ) : f^[n] x = x :=
+91:  Nat.recOn n rfl fun n ihn ↦ by rw [iterate_succ_apply, h, ihn]
+94:`g` is invariant under composition with any iterate of `f`. -/
+95:theorem iterate_invariant {g : α → β} (h : g ∘ f = g) (n : ℕ) : g ∘ f^[n] = g := match n with
+96:  | 0 => by rw [iterate_zero, comp_id]
+97:  | m + 1 => by rwa [iterate_succ, ← comp_assoc, iterate_invariant h m]
+99:theorem Injective.iterate (Hinj : Injective f) (n : ℕ) : Injective f^[n] :=
+102:theorem Surjective.iterate (Hsurj : Surjective f) (n : ℕ) : Surjective f^[n] :=
+105:theorem Bijective.iterate (Hbij : Bijective f) (n : ℕ) : Bijective f^[n] :=
+106:  ⟨Hbij.1.iterate n, Hbij.2.iterate n⟩
+110:theorem iterate_right {f : α → β} {ga : α → α} {gb : β → β} (h : Semiconj f ga gb) (n : ℕ) :
+114:theorem iterate_left {g : ℕ → α → α} (H : ∀ n, Semiconj f (g n) (g <| n + 1)) (n k : ℕ) :
+130:theorem iterate_right (h : Commute f g) (n : ℕ) : Commute f g^[n] :=
+131:  Semiconj.iterate_right h n
+
+Fixed points
+17:* the set `fixedPoints f` of fixed points of a self-map `f`.
+118:def fixedPoints (f : α → α) : Set α :=
+121:instance fixedPoints.decidable [DecidableEq α] (f : α → α) (x : α) :
+122:    Decidable (x ∈ fixedPoints f) :=
+126:theorem mem_fixedPoints : x ∈ fixedPoints f ↔ IsFixedPt f x :=
+129:theorem mem_fixedPoints_iff {α : Type*} {f : α → α} {x : α} : x ∈ fixedPoints f ↔ f x = x := by
+133:theorem fixedPoints_id : fixedPoints (@id α) = Set.univ :=
+136:theorem fixedPoints_subset_range : fixedPoints f ⊆ Set.range f := fun x hx => ⟨x, hx⟩
+140:theorem Semiconj.mapsTo_fixedPoints {g : α → β} (h : Semiconj g fa fb) :
+141:    Set.MapsTo g (fixedPoints fa) (fixedPoints fb) := fun _ hx => hx.map h
+145:theorem invOn_fixedPoints_comp (f : α → β) (g : β → α) :
+146:    Set.InvOn f g (fixedPoints <| f ∘ g) (fixedPoints <| g ∘ f) :=
+150:theorem mapsTo_fixedPoints_comp (f : α → β) (g : β → α) :
+151:    Set.MapsTo f (fixedPoints <| g ∘ f) (fixedPoints <| f ∘ g) := fun _ hx => hx.map fun _ => rfl
+154:of `f ∘ g` and the fixed points of `g ∘ f`. The inverse map is `f`, see `invOn_fixedPoints_comp`. -/
+155:theorem bijOn_fixedPoints_comp (f : α → β) (g : β → α) :
+156:    Set.BijOn g (fixedPoints <| f ∘ g) (fixedPoints <| g ∘ f) :=
+157:  (invOn_fixedPoints_comp f g).bijOn (mapsTo_fixedPoints_comp g f) (mapsTo_fixedPoints_comp f g)
+160:of `f ∘ g`. This is a particular case of `Function.invOn_fixedPoints_comp`. -/
+161:theorem Commute.invOn_fixedPoints_comp (h : Commute f g) :
+162:    Set.InvOn f g (fixedPoints <| f ∘ g) (fixedPoints <| f ∘ g) := by
+163:  simpa only [h.comp_eq] using Function.invOn_fixedPoints_comp f g
+166:This is a particular case of `Function.bijOn_fixedPoints_comp`. -/
+167:theorem Commute.left_bijOn_fixedPoints_comp (h : Commute f g) :
+168:    Set.BijOn f (fixedPoints <| f ∘ g) (fixedPoints <| f ∘ g) := by
+169:  simpa only [h.comp_eq] using bijOn_fixedPoints_comp g f
+172:This is a particular case of `Function.bijOn_fixedPoints_comp`. -/
+173:theorem Commute.right_bijOn_fixedPoints_comp (h : Commute f g) :
+174:    Set.BijOn g (fixedPoints <| f ∘ g) (fixedPoints <| f ∘ g) := by
+175:  simpa only [h.comp_eq] using bijOn_fixedPoints_comp f g
+16:* the predicate `IsFixedPt f x := f x = x`;
+19:We also prove some simple lemmas about `IsFixedPt` and `∘`, `iterate`, and `Semiconj`.
+40:theorem isFixedPt_id (x : α) : IsFixedPt id x :=
+44:@[simp] theorem forall_isFixedPt_iff : (∀ x, IsFixedPt f x) ↔ f = id :=
+47:namespace IsFixedPt
+49:instance decidable [h : DecidableEq α] {f : α → α} {x : α} : Decidable (IsFixedPt f x) :=
+53:protected theorem eq (hf : IsFixedPt f x) : f x = x :=
+57:protected theorem comp (hf : IsFixedPt f x) (hg : IsFixedPt g x) : IsFixedPt (f ∘ g) x :=
+63:protected theorem iterate (hf : IsFixedPt f x) (n : ℕ) : IsFixedPt f^[n] x :=
+67:theorem left_of_comp (hfg : IsFixedPt (f ∘ g) x) (hg : IsFixedPt g x) : IsFixedPt f x :=
+74:theorem to_leftInverse (hf : IsFixedPt f x) (h : LeftInverse g f) : IsFixedPt g x :=
+81:protected theorem map {x : α} (hx : IsFixedPt fa x) {g : α → β} (h : Semiconj g fa fb) :
+82:    IsFixedPt fb (g x) :=
+87:protected theorem apply {x : α} (hx : IsFixedPt f x) : IsFixedPt f (f x) := by convert hx
+89:theorem preimage_iterate {s : Set α} (h : IsFixedPt (Set.preimage f) s) (n : ℕ) :
+90:    IsFixedPt (Set.preimage f^[n]) s := by
+94:lemma image_iterate {s : Set α} (h : IsFixedPt (Set.image f) s) (n : ℕ) :
+95:    IsFixedPt (Set.image f^[n]) s :=
+98:protected theorem equiv_symm (h : IsFixedPt e x) : IsFixedPt e.symm x :=
+101:protected theorem perm_inv (h : IsFixedPt e x) : IsFixedPt (⇑e⁻¹) x :=
+104:protected theorem perm_pow (h : IsFixedPt e x) (n : ℕ) : IsFixedPt (⇑(e ^ n)) x := h.iterate _
+106:protected theorem perm_zpow (h : IsFixedPt e x) : ∀ n : ℤ, IsFixedPt (⇑(e ^ n)) x
+110:end IsFixedPt
+114:    IsFixedPt f (f x) ↔ IsFixedPt f x :=
+115:  ⟨fun h => hf h.eq, IsFixedPt.apply⟩
+119:  { x : α | IsFixedPt f x }
+123:  IsFixedPt.decidable
+126:theorem mem_fixedPoints : x ∈ fixedPoints f ↔ IsFixedPt f x :=

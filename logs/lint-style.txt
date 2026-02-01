@@ -1,0 +1,6 @@
+error: [root]: no configuration file with a supported extension:
+/home/repos/closure-ladder-theory/lakefile.lean
+/home/repos/closure-ladder-theory/lakefile.toml
+error: [root]: no configuration file with a supported extension:
+/home/repos/closure-ladder-theory/lakefile.lean
+/home/repos/closure-ladder-theory/lakefile.toml

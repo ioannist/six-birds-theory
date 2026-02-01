@@ -1,0 +1,18 @@
+FOUND: ClosureOperator : (α : Type u_1) → [Preorder α] → Type u_1
+FOUND: ClosureOperator.IsClosed : {α : Type u_1} → [inst : Preorder α] → ClosureOperator α → α → Prop
+FOUND: ClosureOperator.Closeds : {α : Type u_1} → [inst : PartialOrder α] → ClosureOperator α → Type (max 0 u_1)
+FOUND: ClosureOperator.toCloseds : {α : Type u_1} → [inst : PartialOrder α] → (c : ClosureOperator α) → α → c.Closeds
+FOUND: ClosureOperator.isClosed_iff : ∀ {α : Type u_1} [inst : Preorder α] (self : ClosureOperator α) {x : α},
+  self.IsClosed x ↔ self.toFun x = x
+FOUND: ClosureOperator.isClosed_closure : ∀ {α : Type u_1} [inst : PartialOrder α] (c : ClosureOperator α) (x : α),
+  c.IsClosed (c x)
+FOUND: ClosureOperator.le_closure : ∀ {α : Type u_1} [inst : PartialOrder α] (c : ClosureOperator α) (x : α), x ≤ c x
+FOUND: ClosureOperator.idempotent : ∀ {α : Type u_1} [inst : PartialOrder α] (c : ClosureOperator α) (x : α),
+  c (c x) = c x
+FOUND: GaloisInsertion.gc : ∀ {α : Type u_2} {β : Type u_3} [inst : Preorder α] [inst_1 : Preorder β] {l : α → β}
+  {u : β → α} (self : GaloisInsertion l u), GaloisConnection l u
+FOUND: GaloisInsertion.l_u_eq : ∀ {α : Type u} {β : Type v} {l : α → β} {u : β → α} [inst : Preorder α]
+  [inst_1 : PartialOrder β] (gi : GaloisInsertion l u) (b : β), l (u b) = b
+FOUND: Setoid.ker : {α : Type u_1} → {β : Type u_2} → (α → β) → Setoid α
+FOUND: Function.IsFixedPt : {α : Type u₁} → (α → α) → α → Prop
+FOUND: Function.fixedPoints : {α : Type u} → (α → α) → Set α

@@ -1,0 +1,50 @@
+From dcdd1b007709f49d53f515b095115748a62767be Mon Sep 17 00:00:00 2001
+From: Ioannis Tsiokos <ioannis.tsiokos@gmail.com>
+Date: Sun, 1 Feb 2026 19:22:03 +0000
+Subject: [PATCH 3/3] Logic/Function/Iterate: idempotent iterate lemmas
+
+---
+ Mathlib/Logic/Function/Iterate.lean | 27 +++++++++++++++++++++++++++
+ 1 file changed, 27 insertions(+)
+
+diff --git a/Mathlib/Logic/Function/Iterate.lean b/Mathlib/Logic/Function/Iterate.lean
+index 754a3e5eaf..eefab531d9 100644
+--- a/Mathlib/Logic/Function/Iterate.lean
++++ b/Mathlib/Logic/Function/Iterate.lean
+@@ -90,6 +90,33 @@ variable {f}
+ theorem iterate_fixed {x} (h : f x = x) (n : ℕ) : f^[n] x = x :=
+   Nat.recOn n rfl fun n ihn ↦ by rw [iterate_succ_apply, h, ihn]
+ 
++namespace Idempotent
++
++/-- If `f` is idempotent, all positive iterates of `f` agree with one application. -/
++theorem iterate_succ_apply {α : Type u} {f : α → α} (hf : Idempotent f) (n : Nat) (x : α) :
++    f^[n + 1] x = f x := by
++  induction n generalizing x with
++  | zero =>
++      simp
++  | succ n ih =>
++      calc
++        f^[n + 2] x = f^[n + 1] (f x) := by
++          simp [Function.iterate_succ_apply]
++        _ = f (f x) := by
++          simpa using ih (f x)
++        _ = f x := hf x
++
++/-- If `f` is idempotent, any iterate with `1 ≤ n` equals a single application. -/
++theorem iterate_apply_eq {α : Type u} {f : α → α} (hf : Idempotent f) {n : Nat} (hn : 1 ≤ n)
++    (x : α) : f^[n] x = f x := by
++  cases n with
++  | zero =>
++      cases hn
++  | succ n =>
++      simpa [Nat.succ_eq_add_one] using iterate_succ_apply (f := f) hf n x
++
++end Idempotent
++
+ /-- If a function `g` is invariant under composition with a function `f` (i.e., `g ∘ f = g`), then
+ `g` is invariant under composition with any iterate of `f`. -/
+ theorem iterate_invariant {g : α → β} (h : g ∘ f = g) (n : ℕ) : g ∘ f^[n] = g := match n with
+-- 
+2.34.1
+

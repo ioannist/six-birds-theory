@@ -1,0 +1,18 @@
+«lint-style» [0.0.1]
+Run text-based style linters on every Lean file in specified modules.
+  Print errors about any unexpected style errors to standard output.
+
+USAGE:
+    «lint-style» [FLAGS] <modules>...
+
+FLAGS:
+    -h, --help  Prints this message.
+    --version   Prints the version.
+    --github    Print errors in a format suitable for github problem matchers
+                otherwise, produce human-readable output
+    --fix       Automatically fix the style error, if possible
+
+ARGS:
+    modules : String  Which modules, and their imports, will be linted.
+                      If no modules are specified, the linter runs on the
+                      default Lake module(s).

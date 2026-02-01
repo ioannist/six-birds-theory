@@ -1,0 +1,27 @@
+From c3c56f22ef4d2fe31d433d9e6a7ca7a7518b0401 Mon Sep 17 00:00:00 2001
+From: Ioannis Tsiokos <ioannis.tsiokos@gmail.com>
+Date: Sun, 1 Feb 2026 19:21:58 +0000
+Subject: [PATCH 2/3] Logic/Function: define Function.Idempotent
+
+---
+ Mathlib/Logic/Function/Basic.lean | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/Mathlib/Logic/Function/Basic.lean b/Mathlib/Logic/Function/Basic.lean
+index 53b345877b..b643e060c1 100644
+--- a/Mathlib/Logic/Function/Basic.lean
++++ b/Mathlib/Logic/Function/Basic.lean
+@@ -870,6 +870,10 @@ instance hasUncurryInduction [HasUncurry β γ δ] : HasUncurry (α → β) (α
+ 
+ end Uncurry
+ 
++/-- A unary function is idempotent if applying it twice is the same as applying it once. -/
++def Idempotent {α} (f : α → α) : Prop :=
++  ∀ x, f (f x) = f x
++
+ /-- A function is involutive, if `f ∘ f = id`. -/
+ def Involutive {α} (f : α → α) : Prop :=
+   ∀ x, f (f x) = x
+-- 
+2.34.1
+
