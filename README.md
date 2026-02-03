@@ -1,3 +1,7 @@
+---
+arxiv: 2602.00134
+---
+
 # Six Birds: Foundations of Emergence Calculus
 
 > **Six Birds: Foundations of Emergence Calculus**
