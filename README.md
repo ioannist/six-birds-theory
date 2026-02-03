@@ -8,6 +8,8 @@ arxiv: 2602.00134
 >
 > Tsiokos, Ioannis
 >
+> arXiv: [2602.00134](https://arxiv.org/abs/2602.00134)
+>
 > Zenodo: https://zenodo.org/records/18365949
 >
 > DOI: [10.5281/zenodo.18365949](https://doi.org/10.5281/zenodo.18365949)
